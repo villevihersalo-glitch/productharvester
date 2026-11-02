@@ -1,16 +1,26 @@
 # Product Harvester
 
-Reusable local catalogue collection tool (CSV/JSON, Shopify product feeds, Alko catalogue adapter). The Windows UI runs locally and stores observations in SQLite.
+Paikallinen keruuohjelma. Python 3.10+; käynnistä Windowsissa `START_WINDOWS.bat`.
 
-## Initial source import
-Import the prepared **Product Harvester 1.2.1 Git-ready** archive into this repository, commit and push to `main`.
+## Pysyvä datakansio (suositeltu)
 
-The program's SQLite database and harvest results must remain local and must **never be committed** to this public repository. Keep a separate offline backup before changing versions.
+Lähdekoodi voi sijaita GitHub Desktopin kloonatussa kansiossa, mutta SQLite ja keruutulokset pidetään sen ulkopuolella.
 
-## Windows
-Install Python 3.10+, then run `START_WINDOWS.bat` from your local project folder after importing the source files.
+**Käyttöönotto:** tee ensin varmuuskopio. Jos vanha asennus on käytössä, sulje ohjelma ja kopioi (älä siirrä) vanhat `data/catalog_registry_v69.sqlite` sekä koko `workspace/` yhteen pysyvään kansioon niiden alkuperäisillä alikansiopoluilla. Älä yhdistä kahta eri SQLite-tietokantaa sokkona. Tämän jälkeen aseta Windowsin ympäristömuuttuja `PRODUCT_HARVESTER_DATA_DIR` osoittamaan tähän kansioon. Esimerkiksi PowerShellissä:
 
-## Collaboration
-Codex and Claude Code can edit the same checked-out project. Use a feature branch or pull request; pull changes to the computer using GitHub Desktop or `git pull --ff-only`.
+```powershell
+$env:PRODUCT_HARVESTER_DATA_DIR = 'C:\\Users\\Ville\\Documents\\ProductHarvesterData'
+py -3 run.py
+```
 
-> Source code has not yet been imported into GitHub by this initial setup. The Git-ready package must be committed once.
+Vaihtoehtoisesti:
+
+```powershell
+py -3 run.py --data-dir 'C:\\Users\\Ville\\Documents\\ProductHarvesterData'
+```
+
+Ohjelma käyttää tällöin tietokantaa `<data-dir>/data/catalog_registry_v69.sqlite` sekä tallentaa ajot `<data-dir>/workspace/`-kansioon. Jos asetusta ei anneta, vanha kansiorakenne pysyy käytössä. **Uuteen tyhjään kansioon käynnistäminen luo uuden tyhjän tietokannan; se ei siirrä vanhoja havaintoja automaattisesti.**
+
+GitHubissa on vain ohjelmakoodi. Paikalliset tietokannat ja työtilat ovat .gitignore-poissuljettuja, mutta varmista muutokset aina ennen pushia. Älä laita yksityistä dataa julkiseen repositorioon.
+
+Codex / Claude Code: projektiohjeet `AGENTS.md`, `CLAUDE.md`, `DEVELOPER_GUIDE.md`.
