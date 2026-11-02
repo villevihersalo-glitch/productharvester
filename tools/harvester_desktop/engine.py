@@ -8,6 +8,7 @@ import csv
 import hashlib
 import ipaddress
 import json
+import os
 import re
 import socket
 import sqlite3
@@ -156,9 +157,11 @@ def parse_sitemap(xml):
 class HarvesterDesktop:
     def __init__(self, root):
         self.root=Path(root).resolve()
-        (self.root/'data').mkdir(parents=True,exist_ok=True)
-        self.dbpath=self.root/'data/catalog_registry_v69.sqlite'
-        self.workspace=self.root/'workspace'
+        configured=os.environ.get('PRODUCT_HARVESTER_DATA_DIR','').strip()
+        self.data_root=Path(configured).expanduser().resolve() if configured else self.root
+        (self.data_root/'data').mkdir(parents=True,exist_ok=True)
+        self.dbpath=self.data_root/'data/catalog_registry_v69.sqlite'
+        self.workspace=self.data_root/'workspace'
         for d in ('imports','snapshots','exports','runs'):(self.workspace/d).mkdir(parents=True,exist_ok=True)
         self.lock=threading.RLock();self.stop=threading.Event();self.worker=None
         self.job={'state':'idle','source':'','mode':'','processed':0,'total':0,'found':0,'pages':0,'errors':0,'logs':[]}
@@ -270,7 +273,7 @@ class HarvesterDesktop:
         with csv_path.open('w',newline='',encoding='utf-8-sig') as f:
             writer=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore');writer.writeheader();writer.writerows(normalized)
         return {'rows':len(normalized),'new_eans':len(distinct-existing),'skipped':result['skipped'],
-                'file':str(output.relative_to(self.root)), 'csv':str(csv_path.relative_to(self.root)),
+                'file':str(output), 'csv':str(csv_path),
                 'import_id':result.get('import_id')}
 
     def _read_file_rows(self,path,source,category):
