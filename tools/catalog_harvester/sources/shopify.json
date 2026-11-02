@@ -1,0 +1,35 @@
+{
+  "source": "Shopify export",
+  "columns": {
+    "name": [
+      "name",
+      "title"
+    ],
+    "brand": [
+      "brand",
+      "vendor"
+    ],
+    "ean": [
+      "ean",
+      "barcode"
+    ],
+    "category": [
+      "category",
+      "product_type"
+    ],
+    "product_url": [
+      "product_url",
+      "url"
+    ],
+    "source_product_id": [
+      "source_product_id",
+      "id"
+    ],
+    "units": [
+      "units"
+    ],
+    "size_ml": [
+      "size_ml"
+    ]
+  }
+}

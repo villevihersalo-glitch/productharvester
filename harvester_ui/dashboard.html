@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product Harvester · Kaljappi</title>
+<link rel="stylesheet" href="/dashboard.css">
+<script src="/dashboard.js" defer></script>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" aria-label="Sovelluksen valikko">
+    <div class="brand"><div class="brand-mark">H<span>.</span></div><div><strong>HARVESTER</strong><small>PRODUCT INTELLIGENCE</small></div></div>
+    <div class="side-label">TYÖTILA</div>
+    <a href="#overview" class="nav active"><span>◫</span> Yleisnäkymä</a>
+    <a href="#collect" class="nav"><span>⇣</span> Tuotteiden keruu</a>
+    <a href="#source-registry" class="nav"><span>▦</span> Lähdeluettelot</a>
+    <a href="#jobqueue" class="nav"><span>≡</span> Ajastusjono</a>
+    <a href="#history" class="nav"><span>▤</span> Ajohistoria</a>
+    <a href="#recent" class="nav"><span>◈</span> Tuotehavainnot</a>
+    <div class="sidebar-bottom"><div class="local-led"><i></i> PAIKALLINEN OHJELMA</div><p>Tiedot pysyvät omalla koneellasi. Ei pilvitiliä eikä pakollista tekoälyä.</p></div>
+  </aside>
+  <main>
+    <header class="topbar"><div class="breadcrumb">TYÖTILA <span>/</span> KALJAPPI <span>/</span> TUOTEREKISTERI</div><div class="topright"><span class="live-dot"></span> <span id="connection">Yhdistetään…</span></div></header>
+    <section id="overview" class="intro"><div><p class="eyebrow">TUOTETIETOJEN HALLINTA</p><h1>Tuotekeruun ohjauspaneeli<span>.</span></h1><p class="sub">Kerää, vertaile ja järjestä kokonaisia tuoteluetteloita. Julkaistu Kaljappi pysyy erillään raakadatasta.</p></div><a id="export" class="download" href="/api/export.csv"><span>↓</span> Vie tarkistuslista CSV</a></section>
+    <section class="metrics" aria-label="Tuotetietojen luvut">
+      <div class="metric"><div class="metric-label">JULKAISTUT JUOMAT <span>↗</span></div><strong id="totalCatalog">—</strong><div class="metric-foot">Kaljapin nykyinen luettelo</div></div>
+      <div class="metric"><div class="metric-label">RAAKAHAVAINNOT <span>◇</span></div><strong id="totalRaw">—</strong><div class="metric-foot">Kaikki tuontilähteet yhteensä</div></div>
+      <div class="metric"><div class="metric-label">ERI EAN-TUNNUKSET <span>≋</span></div><strong id="totalEan">—</strong><div class="metric-foot">Pakkaustunnisteita, ei juomien määrä</div></div>
+      <div class="metric metric-accent"><div class="metric-label">VERTAILEMATTA / UUSIA EAN-EHDOKKAITA <span>↗</span></div><strong id="totalNew">—</strong><div class="metric-foot">Ei vielä hyväksyttyjä julkaisuun</div></div>
+    </section>
+    <section class="work-grid" id="collect">
+      <div class="panel collect-panel">
+        <div class="panel-heading"><div><p class="eyebrow">01 / KERUU</p><h2>Uusi keruuajo</h2></div><span class="soft-icon">↘</span></div>
+        <div class="hint">Voit tuoda valmisluettelon tai kerätä julkisia tuotetietoja verkosta. Keruu kunnioittaa robots.txt-sääntöjä ja palvelimien rajoituksia.</div>
+        <form id="collectForm">
+          <div class="fields-two">
+            <label>Lähde <select id="source"><option>Alko</option><option>S-kaupat</option><option>K-Ruoka</option><option>Shopify</option><option value="custom">Muu lähde…</option></select></label>
+            <label>Tuoteryhmä <select id="category"><option value="">Ei rajausta (yleiskäyttö)</option><option value="beer">Olut</option><option value="cider">Siideri</option><option value="longdrink">Lonkero</option><option value="seltzer">Hard seltzer</option></select></label>
+          </div>
+          <label id="customSourceField" hidden>Lähteen nimi <input type="text" id="customSource" placeholder="Esim. Paahtimo tai oma verkkokauppa" maxlength="100"></label>
+          <label>Keruutapa <select id="mode"><option value="file">CSV / JSON -tuontitiedosto</option><option value="url_export">Julkinen CSV / JSON -latauslinkki</option><option value="sitemap">Sitemap → tuotesivut (JSON-LD)</option><option value="urls">Luettelo tuotesivujen osoitteista</option><option value="shopify">Shopify /products.json -sivutus</option><option value="alko_file">Alko-hinnaston CSV/XLSX (koko tiedosto)</option><option value="alko_mirror">Alkon epävirallinen hinnastopeili (sivutus)</option></select></label>
+          <div id="fileField" class="field-block"><label>Valitse tiedosto <input type="file" id="file" accept=".csv,.json,.xlsx"></label><p class="field-note">CSV/JSON/XLSX, enintään 35 MB. Tuo raakarekisteriin; ei julkaise tuotteita.</p></div>
+          <div id="urlField" class="field-block" hidden><label id="urlLabel">Lähdeosoite (HTTPS) <input id="url" type="url" placeholder="https://esimerkki.fi/sitemap.xml"></label></div>
+          <div id="urlsField" class="field-block" hidden><label>Tuotelinkit, yksi per rivi <textarea id="urls" rows="4" placeholder="https://esimerkki.fi/products/tuote-1"></textarea></label></div>
+          <div id="patternField" class="field-block" hidden><label>URL-suodatin (regex, vapaaehtoinen) <input id="pattern" placeholder="/products/|/tuote/"></label><p class="field-note">Rajaa sivukartasta vain tuotteisiin liittyvät osoitteet.</p></div>
+          <div id="alkoNotice" class="notice" hidden><span>!</span><div><strong>Epävirallinen kolmannen osapuolen hinnastopeili.</strong> Sivut kerätään vain jos robots.txt sallii. Alkon oma vanha Excel-lataus ei ole vahvistetusti toimiva. Tämä aineisto EI todista tuotteiden ajantasaista myymäläsaatavuutta eikä EAN-koodeja.</div></div>
+          <label id="resumeField" hidden><input type="checkbox" id="resumeMirror"> Jatka aiemmin keskeytynyttä Alko-peilin sivukeräystä (tallennetut sivut)</label>
+          <div class="fields-two tune"><label>Sivujen yläraja <input id="maxPages" type="number" min="1" max="3000" value="100"></label><label>Viive / pyyntö (s) <input id="delay" type="number" min="1" max="30" step="0.5" value="1.5"></label></div>
+          <div class="fields-two"><label>Ajasta (valinnainen) <input type="datetime-local" id="startAt"></label><label>Toista tunneittain (0 = kerran) <input type="number" id="repeatHours" min="0" max="8760" value="0"></label></div>
+          <p class="field-note">Ajastetut ja peräkkäiset työt suoritetaan vain, kun tämä paikallinen ohjelma on käynnissä.</p>
+          <div class="notice"><span>ⓘ</span><div>Verkkosivun löytyminen ei todista tuotteen olevan juuri nyt myynnissä Suomessa. Tuotteen hyväksyntä tehdään erikseen.</div></div>
+          <div class="form-actions"><button type="submit" id="startButton" class="primary"><span>▶</span> Aloita keruu</button><button type="button" id="queueButton" class="secondary">＋ Lisää jonoon</button><button type="button" id="stopButton" class="secondary" disabled>■ Keskeytä</button></div>
+          <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="panel process-panel">
+        <div class="panel-heading"><div><p class="eyebrow">02 / SEURANTA</p><h2>Keruun tila</h2></div><span class="status-pill" id="jobState">VALMIS ALOITTAMAAN</span></div>
+        <div class="runline"><div><div class="overline">NYKYINEN TYÖ</div><strong id="jobName">Ei käynnissä olevaa työtä</strong></div><span id="jobMode">—</span></div>
+        <div class="progress-top"><span>Edistyminen</span><strong id="percent">0 %</strong></div>
+        <div class="progress-track"><div id="progressBar" class="progress-fill" style="width:0%"></div></div>
+        <div class="mini-metrics"><div><strong id="processed">0</strong><span>Käsiteltyä sivua/riviä</span></div><div><strong id="found">0</strong><span>Poimittuja havaintoja</span></div><div><strong id="errors">0</strong><span>Virheitä</span></div></div>
+        <div class="log-title"><span>AJON TAPAHTUMAT</span><span class="terminal-indicator">● LIVE</span></div>
+        <div class="console" id="logs" aria-live="polite"><div class="console-empty">Keruuloki ilmestyy tänne käynnistyksen jälkeen.</div></div>
+        <p class="field-note">Keskeytys tapahtuu nykyisen verkkopyynnön päätyttyä. Keskeneräistä keruuajoa ei tallenneta raakarekisteriin.</p>
+      </div>
+    </section>
+    <section class="tables" id="source-registry"><div class="panel table-panel"><div class="panel-heading"><div><p class="eyebrow">03 / LÄHDEKARTTA</p><h2>Kauppojen tuoteluettelot</h2><p class="field-note">Tutkitut yksittäiset tuote-URL:t on erotettu kokonaan läpikäydyistä kategorioista. Suuri osa alla olevista kategoriasivuista tarvitsee vielä keruuadapterin.</p></div><div class="actions"><a class="download small" href="/api/sources.csv">Lähdelista CSV</a><a class="download small" href="/api/inventory.csv">Historialliset URL:t CSV</a></div></div>
+    <div class="table-scroll"><table><thead><tr><th>Kauppias</th><th>Ryhmä</th><th>Tuoteluettelo</th><th>Keruutila</th><th>Huomio</th></tr></thead><tbody id="sourceRows"><tr><td colspan="5">Ladataan…</td></tr></tbody></table></div></div></section>
+    <section class="tables" id="jobqueue"><div class="panel table-panel"><div class="panel-heading"><div><p class="eyebrow">04 / AUTOMATISOINTI</p><h2>Peräkkäiset ja ajastetut keruut</h2><p class="field-note">Luo useita töitä yllä olevalla lomakkeella tai tuo työlista CSV:nä. Jono ajetaan yksi työ kerrallaan ja tallentuu SQLiteen.</p></div><span class="table-label" id="queueCount">0 TYÖTÄ</span></div>
+    <div class="queue-toolbar"><button id="runSelected" class="primary" type="button">▶ Aja valitut nyt</button><button id="removeSelected" type="button" class="secondary">Poista valitut</button><label class="compact-label">Tuo työlista CSV <input id="queueFile" type="file" accept=".csv"></label><a href="/api/queue/template.csv" class="download small">CSV-malli</a></div><p id="queueFeedback" class="feedback" role="status"></p>
+    <div class="table-scroll"><table><thead><tr><th>Valitse</th><th>Työ / lähde</th><th>Keruutapa</th><th>Tila</th><th>Seuraava aika (UTC)</th><th>Toisto</th><th>Yrityksiä</th><th>Ohjaus</th></tr></thead><tbody id="queueRows"><tr><td colspan="7">Ei jonoa.</td></tr></tbody></table></div></div></section>
+    <section class="tables" id="exports"><div class="panel table-panel"><div class="panel-heading"><div><p class="eyebrow">05 / VIENTI</p><h2>Vie myöhemmin toiseen sovellukseen</h2></div><span class="table-label">VAIN TARKISTUSLISTA</span></div><div class="export-row"><label>Kohde <select id="exportTarget"><option value="kaljappi">Kaljappi</option><option value="coffee">Kahvisovellus</option><option value="generic">Yleinen CSV</option></select></label><label>Tuotteet <select id="exportSelection"><option value="review">Tarkistettavat</option><option value="all">Kaikki raakahavainnot</option></select></label><button id="exportTargetButton" type="button" class="primary">↓ Vie CSV</button></div><p class="field-note">CSV sisältää lähdeviitteet ja tilan REVIEW_REQUIRED. Mitään ei julkaista automaattisesti. Kunkin keruuajon oma CSV/JSON tallentuu myös workspace/runs- ja workspace/snapshots-kansioihin.</p></div></section>
+    <section class="tables" id="history"><div class="panel table-panel"><div class="panel-heading"><div><p class="eyebrow">03 / HISTORIA</p><h2>Viimeisimmät keruuajot</h2></div><span class="table-label">LOKAALI SQLITE</span></div><div class="table-scroll"><table><thead><tr><th>Lähde</th><th>Keruutapa</th><th>Tila</th><th>Havaintoja</th><th>Uusia EAN</th><th>Ajankohta</th></tr></thead><tbody id="runs"><tr><td colspan="6">Ei vielä uusia keruuajoja.</td></tr></tbody></table></div></div></section>
+    <section class="tables" id="recent"><div class="panel table-panel"><div class="panel-heading"><div><p class="eyebrow">04 / AINEISTO</p><h2>Viimeisimmät tuotehavainnot</h2></div><span class="table-label" id="reviewCount">— TARKISTETTAVAA</span></div><div class="table-scroll"><table><thead><tr><th>Tuote</th><th>Lähde</th><th>EAN</th><th>Esiseulonta</th></tr></thead><tbody id="products"><tr><td colspan="4">Ladataan…</td></tr></tbody></table></div></div></section>
+    <footer>PRODUCT HARVESTER v1.2 · KALJAPPI V75 · YKSITYINEN PAIKALLINEN TYÖKALU <span>Build once. Reuse anywhere.</span></footer>
+  </main>
+</div>
+</body>
+</html>

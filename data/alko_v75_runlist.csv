@@ -1,0 +1,2 @@
+﻿source,category,mode,url,max_pages,delay,interval_hours,due_at,label,resume
+Alko,,alko_mirror,https://niisku.lab.fi/~pelja/alko/index.php,600,2,0,,Alko peili - vain jos sallittu,False

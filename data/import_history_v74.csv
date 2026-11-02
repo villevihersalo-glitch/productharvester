@@ -1,0 +1,12 @@
+﻿file,source,observations,imported_at
+data/raw_listings_v35.csv,historical_raw_v35,346,2026-11-01T17:20:10.446885+00:00
+data/raw_listings_v41.csv,historical_raw_v41,363,2026-11-01T17:20:11.804002+00:00
+data/v63_finnish_category_candidates.csv,s_kaupat_category_v63,41,2026-11-01T17:20:13.364044+00:00
+data/v58_source_pilot.csv,s_kaupat_v58,3,2026-11-01T17:20:14.722127+00:00
+data/v59_source_batch.csv,s_kaupat_v59,9,2026-11-01T17:20:15.955979+00:00
+data/v68_source_pages.csv,s_kaupat_v68,26,2026-11-01T17:20:17.158903+00:00
+data/v68_beer_source_pages.csv,s_kaupat_beer_v68,4,2026-11-01T17:20:18.971084+00:00
+data/v67_verified_import.csv,verified_v67,1,2026-11-01T17:20:20.258032+00:00
+data/v66_verified_import.csv,verified_v66,5,2026-11-01T17:20:21.392783+00:00
+data/v65_verified_import.csv,verified_v65,8,2026-11-01T17:20:22.996016+00:00
+data/v64_verified_import.csv,verified_v64,3,2026-11-01T17:20:24.602099+00:00

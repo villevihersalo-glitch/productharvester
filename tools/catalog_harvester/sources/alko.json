@@ -1,0 +1,46 @@
+{
+  "source": "Alko",
+  "columns": {
+    "name": [
+      "Nimi",
+      "Tuotenimi",
+      "name"
+    ],
+    "brand": [
+      "Valmistaja",
+      "brand"
+    ],
+    "ean": [
+      "EAN",
+      "EAN-koodi",
+      "ean"
+    ],
+    "category": [
+      "Tyyppi",
+      "Tuoteryhmä",
+      "category"
+    ],
+    "abv": [
+      "Alkoholi-%",
+      "Alkoholi",
+      "abv"
+    ],
+    "product_url": [
+      "Tuotesivu",
+      "URL",
+      "product_url"
+    ],
+    "source_product_id": [
+      "Numero",
+      "Tuotenumero",
+      "id"
+    ],
+    "size_ml": [
+      "Pakkauskoko ml",
+      "size_ml"
+    ]
+  },
+  "allowed_hosts": [
+    "alko.fi"
+  ]
+}

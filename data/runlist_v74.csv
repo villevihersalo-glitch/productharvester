@@ -1,0 +1,19 @@
+﻿source,category,mode,url,pattern,max_pages,delay,interval_hours,due_at,label
+Alko,beer,requires_adapter,https://www.alko.fi/fi/tuotteet/oluet,,100,1.5,0,,alko_beer
+Alko,cider,requires_adapter,https://www.alko.fi/fi/tuotteet/siiderit,,100,1.5,0,,alko_cider
+Alko,longdrink,requires_adapter,https://www.alko.fi/fi/tuotteet/juomasekoitukset,,100,1.5,0,,alko_longdrink
+Alko,seltzer,requires_adapter,https://www.alko.fi/fi/tuotteet/juomasekoitukset,,100,1.5,0,,alko_seltzer
+S-kaupat,beer,requires_adapter,https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat,,100,1.5,0,,s_beer
+S-kaupat,cider,requires_adapter,https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat,,100,1.5,0,,s_cider
+S-kaupat,longdrink,requires_adapter,https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat,,100,1.5,0,,s_longdrink
+S-kaupat,seltzer,requires_adapter,https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat,,100,1.5,0,,s_seltzer
+K-Ruoka,beer,requires_adapter,https://www.k-ruoka.fi/kauppa/tuotteet,,100,1.5,0,,k_beer
+K-Ruoka,cider,requires_adapter,https://www.k-ruoka.fi/kauppa/tuotteet,,100,1.5,0,,k_cider
+K-Ruoka,longdrink,requires_adapter,https://www.k-ruoka.fi/kauppa/tuotteet,,100,1.5,0,,k_longdrink
+K-Ruoka,seltzer,requires_adapter,https://www.k-ruoka.fi/kauppa/tuotteet,,100,1.5,0,,k_seltzer
+Kespro,beer,requires_adapter,https://www.kespro.com/tuotteet?kategoria=alkoholit,,100,1.5,0,,kespro_beer
+Kespro,cider,requires_adapter,https://www.kespro.com/tuotteet?kategoria=alkoholit,,100,1.5,0,,kespro_cider
+Kespro,longdrink,requires_adapter,https://www.kespro.com/tuotteet?kategoria=alkoholit,,100,1.5,0,,kespro_longdrink
+Kespro,seltzer,requires_adapter,https://www.kespro.com/tuotteet?kategoria=alkoholit,,100,1.5,0,,kespro_seltzer
+Pien Shop,beer,requires_adapter,https://untappd.com/v/pien-shop/5214359,,100,1.5,0,,pien_beer
+Pien Shop,cider,requires_adapter,https://untappd.com/v/pien-shop/5214359,,100,1.5,0,,pien_cider

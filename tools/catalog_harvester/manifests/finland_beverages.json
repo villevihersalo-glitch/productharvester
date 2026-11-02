@@ -1,0 +1,17 @@
+{
+  "description": "Initial coverage checklist, not a claim that entire retailer inventories are downloadable",
+  "targets": [
+    {"target_id":"alko_beer","source":"Alko","category":"olut","description":"Alko beers, local retailer export"},
+    {"target_id":"alko_cider","source":"Alko","category":"siideri","description":"Alko ciders, local retailer export"},
+    {"target_id":"alko_longdrink","source":"Alko","category":"lonkero","description":"Alko long drinks, local retailer export"},
+    {"target_id":"alko_seltzer","source":"Alko","category":"seltzer","description":"Alko hard seltzers, local retailer export"},
+    {"target_id":"s_beer","source":"S-kaupat","category":"olut","description":"S-kaupat beer snapshot, retailer/store-specific"},
+    {"target_id":"s_cider","source":"S-kaupat","category":"siideri","description":"S-kaupat cider snapshot, retailer/store-specific"},
+    {"target_id":"s_longdrink","source":"S-kaupat","category":"lonkero","description":"S-kaupat long drinks snapshot, retailer/store-specific"},
+    {"target_id":"s_seltzer","source":"S-kaupat","category":"seltzer","description":"S-kaupat hard seltzer snapshot, retailer/store-specific"},
+    {"target_id":"k_beer","source":"K-Ruoka","category":"olut","description":"K-Ruoka beers, selected store"},
+    {"target_id":"k_cider","source":"K-Ruoka","category":"siideri","description":"K-Ruoka ciders, selected store"},
+    {"target_id":"k_longdrink","source":"K-Ruoka","category":"lonkero","description":"K-Ruoka long drinks, selected store"},
+    {"target_id":"k_seltzer","source":"K-Ruoka","category":"seltzer","description":"K-Ruoka hard seltzers, selected store"}
+  ]
+}

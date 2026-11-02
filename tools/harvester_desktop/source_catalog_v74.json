@@ -1,0 +1,192 @@
+[
+  {
+    "id": "alko_beer",
+    "merchant": "Alko",
+    "category": "beer",
+    "url": "https://www.alko.fi/fi/tuotteet/oluet",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "917 tuotetta 1.11.2026 julkisella listalla; Näytä lisää / dynaaminen selaus ei vielä tuettu. Tarvitaan vienti/API tai adapteri.",
+    "evidence": "https://www.alko.fi/fi/tuotteet/oluet"
+  },
+  {
+    "id": "alko_cider",
+    "merchant": "Alko",
+    "category": "cider",
+    "url": "https://www.alko.fi/fi/tuotteet/siiderit",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "70 tuotetta 1.11.2026 listalla; dynaaminen sivutus ei vielä tuettu.",
+    "evidence": "https://www.alko.fi/fi/tuotteet/siiderit"
+  },
+  {
+    "id": "alko_longdrink",
+    "merchant": "Alko",
+    "category": "longdrink",
+    "url": "https://www.alko.fi/fi/tuotteet/juomasekoitukset",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Sekakategoria sisältää myös ei-lonkeroita; rajaus ja sivutus vaativat adapterin.",
+    "evidence": "https://www.alko.fi/fi/tuotteet/juomasekoitukset"
+  },
+  {
+    "id": "alko_seltzer",
+    "merchant": "Alko",
+    "category": "seltzer",
+    "url": "https://www.alko.fi/fi/tuotteet/juomasekoitukset",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Hard seltzer -tuotteet sisältyvät osin juomasekoituksiin; suodatus puuttuu.",
+    "evidence": "https://www.alko.fi/fi/tuotteet/juomasekoitukset"
+  },
+  {
+    "id": "s_beer",
+    "merchant": "S-kaupat",
+    "category": "beer",
+    "url": "https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Kategoria on kauppakohtainen; tarvitaan myymälän valinta ja hyväksytty massavienti/adapteri.",
+    "evidence": "https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat"
+  },
+  {
+    "id": "s_cider",
+    "merchant": "S-kaupat",
+    "category": "cider",
+    "url": "https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Yleinen kategoriasivu; täydellistä siiderivientiä ei ole varmennettu.",
+    "evidence": "https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat"
+  },
+  {
+    "id": "s_longdrink",
+    "merchant": "S-kaupat",
+    "category": "longdrink",
+    "url": "https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Valitse noutopiste: alkoholivalikoima vaihtelee; adapteri puuttuu.",
+    "evidence": "https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat"
+  },
+  {
+    "id": "s_seltzer",
+    "merchant": "S-kaupat",
+    "category": "seltzer",
+    "url": "https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Hard seltzer -aliryhmää ei ole vahvistettu kattavaksi.",
+    "evidence": "https://www.s-kaupat.fi/tuotteet/alkoholi-ja-virvoitusjuomat"
+  },
+  {
+    "id": "k_beer",
+    "merchant": "K-Ruoka",
+    "category": "beer",
+    "url": "https://www.k-ruoka.fi/kauppa/tuotteet",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Tuotevalikoima kauppakohtainen; oluet-aliryhmä, massavienti/adapteri puuttuu.",
+    "evidence": "https://www.k-ruoka.fi/kauppa/tuotteet"
+  },
+  {
+    "id": "k_cider",
+    "merchant": "K-Ruoka",
+    "category": "cider",
+    "url": "https://www.k-ruoka.fi/kauppa/tuotteet",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Siiderit-aliryhmä; kauppakohtainen valikoima; adapteri puuttuu.",
+    "evidence": "https://www.k-ruoka.fi/kauppa/tuotteet"
+  },
+  {
+    "id": "k_longdrink",
+    "merchant": "K-Ruoka",
+    "category": "longdrink",
+    "url": "https://www.k-ruoka.fi/kauppa/tuotteet",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Lonkerot-aliryhmä; kauppakohtainen valikoima; adapteri puuttuu.",
+    "evidence": "https://www.k-ruoka.fi/kauppa/tuotteet"
+  },
+  {
+    "id": "k_seltzer",
+    "merchant": "K-Ruoka",
+    "category": "seltzer",
+    "url": "https://www.k-ruoka.fi/kauppa/tuotteet",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Juomasekoitukset ei vastaa suoraan hard seltzereitä; adapteri ja rajaus puuttuvat.",
+    "evidence": "https://www.k-ruoka.fi/kauppa/tuotteet"
+  },
+  {
+    "id": "kespro_beer",
+    "merchant": "Kespro",
+    "category": "beer",
+    "url": "https://www.kespro.com/tuotteet?kategoria=alkoholit",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Tukkukaupan alkoholituotteiden erikois- ja lageroluet; vienti/adapteri puuttuu.",
+    "evidence": "https://www.kespro.com/tuotteet?kategoria=alkoholit"
+  },
+  {
+    "id": "kespro_cider",
+    "merchant": "Kespro",
+    "category": "cider",
+    "url": "https://www.kespro.com/tuotteet?kategoria=alkoholit",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Tukkukaupan siiderit; B2B-valikoima ei vastaa automaattisesti vähittäiskauppojen hyllyjä.",
+    "evidence": "https://www.kespro.com/tuotteet?kategoria=alkoholit"
+  },
+  {
+    "id": "kespro_longdrink",
+    "merchant": "Kespro",
+    "category": "longdrink",
+    "url": "https://www.kespro.com/tuotteet?kategoria=alkoholit",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Tukkukaupan lonkerot; B2B-valikoima, adapteri puuttuu.",
+    "evidence": "https://www.kespro.com/tuotteet?kategoria=alkoholit"
+  },
+  {
+    "id": "kespro_seltzer",
+    "merchant": "Kespro",
+    "category": "seltzer",
+    "url": "https://www.kespro.com/tuotteet?kategoria=alkoholit",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Hard seltzer -tuotteiden erottelu B2B-juomasekoituksista vaatii adapterin.",
+    "evidence": "https://www.kespro.com/tuotteet?kategoria=alkoholit"
+  },
+  {
+    "id": "pien_beer",
+    "merchant": "Pien Shop",
+    "category": "beer",
+    "url": "https://untappd.com/v/pien-shop/5214359",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Pien Shopin Untappd-menu. Erota hanatuotteet ja takeaway, vain selvästi Suomessa myytävät pakatut juomat; ei hyväksyttyä vientiadapteria.",
+    "evidence": "https://pien.fi/"
+  },
+  {
+    "id": "pien_cider",
+    "merchant": "Pien Shop",
+    "category": "cider",
+    "url": "https://untappd.com/v/pien-shop/5214359",
+    "mode": "requires_adapter",
+    "state": "unprocessed",
+    "note": "Pien Shop kertoo myyvänsä siidereitä, mutta Untappd-menu ei todista kulloistakin takeaway-valikoimaa.",
+    "evidence": "https://pien.fi/"
+  },
+  {
+    "id": "alko-v75-unofficial-mirror",
+    "merchant": "Alko",
+    "category": "kaikki neljä (epävirallinen peili)",
+    "url": "https://niisku.lab.fi/~pelja/alko/index.php",
+    "mode": "alko_mirror",
+    "state": "adapter_available_unverified",
+    "note": "Kolmannen osapuolen hinnasto; robots.txt ja pääsy tarkistetaan vasta omalla koneella. Ei EAN-koodeja.",
+    "evidence": "public_third_party_not_official"
+  }
+]

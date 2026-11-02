@@ -1,4 +1,4 @@
-# Local data and runtime output
+# Generated local data and secrets
 workspace/
 **/*.sqlite
 **/*.sqlite3
@@ -12,8 +12,6 @@ venv/
 .env.*
 !.env.example
 *.log
-.DS_Store
-Thumbs.db
 node_modules/
 dist/
 build/

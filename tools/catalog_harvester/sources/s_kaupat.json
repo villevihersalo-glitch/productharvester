@@ -1,0 +1,47 @@
+{
+  "source": "S-kaupat",
+  "columns": {
+    "name": [
+      "name",
+      "Nimi",
+      "product_name"
+    ],
+    "brand": [
+      "brand",
+      "Valmistaja"
+    ],
+    "ean": [
+      "ean",
+      "EAN",
+      "gtin"
+    ],
+    "category": [
+      "category",
+      "Kategoria"
+    ],
+    "abv": [
+      "abv",
+      "Alkoholi-%"
+    ],
+    "product_url": [
+      "product_url",
+      "url",
+      "Tuotesivu"
+    ],
+    "source_product_id": [
+      "id",
+      "product_id"
+    ],
+    "units": [
+      "units",
+      "pack_units"
+    ],
+    "size_ml": [
+      "size_ml",
+      "unit_ml"
+    ]
+  },
+  "allowed_hosts": [
+    "s-kaupat.fi"
+  ]
+}

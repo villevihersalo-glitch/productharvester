@@ -1,0 +1,13 @@
+GIT-VALMIS LAHDEKOODI
+
+1. Ota varmuuskopio nykyisestä Product Harvesterin workspace/ ja data/*.sqlite tietokannoista.
+2. Kloonaa vastaava GitHub-repositorio GitHub Desktopilla tai git clone -komennolla.
+3. Pura tämän ZIPin SISALTO suoraan kloonatun repositorion juureen (siella on .git-kansio).
+4. Älä poista .git-kansiota; säilytä githubin README.md.
+5. Tarkista git status.
+6. Commit + push GitHub Desktopilla tai: git add . && git commit -m "Import application source" && git push
+7. Älä tee keruuta tyhjän testitietokannan varassa. Kayta alkuperaista paikallista tietokantaasi, pidettyna pois Gitista.
+
+Huom: tämä on koodin siirtopaketti eikä erillinen asennus. Jatkokehityksessä tietokannan polku kannattaisi siirtaa workspace-kansioon ja tehdä erillinen init/migration-skripti.
+
+Sisallytettyja tiedostoja: 34; pois suljettuja: 5.
